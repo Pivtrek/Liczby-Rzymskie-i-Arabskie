@@ -1,0 +1,60 @@
+public class ArabRzym {
+    private static String[] liczby_Rz = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+    private static int[] liczby_Ar = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    private static int dlugosc_Ar = liczby_Ar.length;
+
+    public static String arab2rzym (int liczba)  {
+        int i = 0;
+        String wynik = "";
+
+        while((liczba > 0) && (i < dlugosc_Ar)){
+            if(liczba >= liczby_Ar[i]) {
+                liczba = liczba - liczby_Ar[i];
+                wynik += liczby_Rz[i];
+            }
+
+            else {
+                i++;
+            }
+        }
+        return wynik;
+    }
+    public static int rzym2arab (String napis) {
+
+        char[] tabNapis = new tabNapis[napis.length()];
+
+        for(int i=0; i < napis.length(); i++){
+            char x;
+            napis.charAt(i) = x;
+            x = tabNapis[i];
+        }
+
+        int wynik = 0, i = 0;
+
+        while(i < napis.length()){
+            int r,y;
+            char t = tabNapis[i];
+            t = tabNapis[i];
+            String s = Character.toString(t);
+            s = liczby_Rz[r];
+
+            char u;
+            int z = i-1;
+            u = tabNapis[z];
+            String v = Character.toString(u);
+            v = liczby_Rz[y];
+
+            if(liczby_Ar[r] > liczby_Ar[y]){
+                wynik = wynik - liczby_Ar[y];
+                wynik = wynik + (liczby_Ar[r] - liczby_Ar[y]);
+                i++;
+            }
+            else{
+                wynik = wynik + liczby_Ar[r];
+                i++;
+            }
+        }
+        return wynik;
+    }
+
+}
